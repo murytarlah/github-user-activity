@@ -12,5 +12,9 @@ public class GitHubActivity {
 		String response = gHubClient.fetchuserActivity(username);
 
 		System.out.println(response);
+
+		EventFormatter formatter = new EventFormatter();
+		formatter.format(response);
+
 	}
 }
