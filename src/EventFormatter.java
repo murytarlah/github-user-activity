@@ -42,6 +42,10 @@ public class EventFormatter {
                     }
                     yield "Created " + ref_type + " " + ref + " in " + repo;
                 }
+                case "ForkEvent" -> {
+                    String forkedRepo = event.get("payload").getAsJsonObject().get("forkee").getAsJsonObject().get("name").getAsString();
+                    yield "Forked " + forkedRepo + " from "+ repo;
+                }
                 case "WatchEvent" -> {
                     yield "Starred " + repo;
                 }
