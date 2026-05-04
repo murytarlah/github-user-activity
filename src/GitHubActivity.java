@@ -7,5 +7,10 @@ public class GitHubActivity {
 
 		String username = args[0];
 		System.out.println("Fetching activity for: " + username);
+
+		GItHubClient gHubClient = new GItHubClient();
+		String response = gHubClient.fetchuserActivity(username);
+
+		System.out.println(response);
 	}
 }
