@@ -19,6 +19,10 @@ public class GItHubClient {
         HttpResponse<String> response = client.send(request,
                 HttpResponse.BodyHandlers.ofString());
 
+        if (response.statusCode() == 404) {
+            throw new IllegalArgumentException("User not found: " + username);
+        }
+
         return response.body();
     }
 }

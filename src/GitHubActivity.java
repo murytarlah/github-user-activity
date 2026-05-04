@@ -9,9 +9,18 @@ public class GitHubActivity {
 		System.out.println("Fetching activity for: " + username);
 
 		GItHubClient gHubClient = new GItHubClient();
-		String response = gHubClient.fetchuserActivity(username);
+		String response;
+		try {
+			response = gHubClient.fetchuserActivity(username);
+		} catch (IllegalArgumentException e) {
+			System.out.println(e.getMessage());
+			return;
+		}
 
-		System.out.println(response);
+		if (response == null || response.isBlank() || response.equals("[]")) {
+			System.out.println("No recent activity found for: " + username);
+			return;
+		}
 
 		EventFormatter formatter = new EventFormatter();
 		formatter.format(response);
