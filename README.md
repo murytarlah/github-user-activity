@@ -1,18 +1,57 @@
-## Getting Started
+# GitHub User Activity
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+A command-line tool that fetches and displays recent activity of any GitHub user using the GitHub API.
 
-## Folder Structure
+## What I Learned
 
-The workspace contains two folders by default, where:
+Building this project helped me practice:
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+- **API Consumption**: Fetching data from external APIs and parsing JSON responses
+- **Java Fundamentals**: Exception handling, and object-oriented design
+- **Error Handling**: Gracefully managing invalid inputs and network failures
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+## How It Works
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+The application accepts a GitHub username as a command-line argument, queries the GitHub API for recent events, and displays them in a formatted list.
 
-## Dependency Management
+**Example Output:**
+```
+- Pushed commit to ui-rebuild in hendurhance/movieace
+- Closed issue #1 in hendurhance/fullstack-product-catalog
+- Merged pull-request #2 in hendurhance/fullstack-product-catalog
+- Opened pull-request #2 in hendurhance/fullstack-product-catalog
+- Created comment on issue #1 in hendurhance/fullstack-product-catalog
+```
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+## Running the Project
+
+**Prerequisites:**
+- Java Runtime Environment (JRE) 11 or above
+
+**Steps:**
+
+1. Clone or download the project files
+2. Navigate to the project directory in your terminal
+3. Compile: 
+```shell
+javac -cp src:lib/gson-2.10.1.jar -d bin src/*.java
+```
+4. Run: 
+```shell
+java -cp bin:lib/gson-2.10.1.jar GitHubActivity <username> # do not forget to add gson to cp while executing
+```
+
+**Example:**
+```bash
+java -cp bin:lib/gson-2.10.1.jar GitHubActivity kamranahmedse
+```
+
+## API Reference
+
+Uses the GitHub API endpoint: `https://api.github.com/users/<username>/events`
+
+[Learn more about GitHub API](https://docs.github.com/en/rest)
+
+## Credits
+
+This project is part of [roadmap.sh](https://roadmap.sh) - helping developers practice backend skills.
