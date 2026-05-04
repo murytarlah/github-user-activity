@@ -31,6 +31,17 @@ public class EventFormatter {
                     String number = event.get("payload").getAsJsonObject().get("number").getAsString();
                     yield action + " pull-request #" + number + " in " + repo;
                 }
+                case "CreateEvent" -> {
+
+                    String ref_type = event.get("payload").getAsJsonObject().get("ref_type").getAsString();
+                    
+                    String ref = event.get("payload").getAsJsonObject().has("ref") ? event.get("payload").getAsJsonObject().get("ref").getAsString() : null;
+
+                    if (ref == null){
+                        yield "Created repository " + repo;
+                    }
+                    yield "Created " + ref_type + " " + ref + " in " + repo;
+                }
                 case "WatchEvent" -> {
                     yield "Starred " + repo;
                 }
