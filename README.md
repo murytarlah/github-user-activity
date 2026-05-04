@@ -55,3 +55,11 @@ Uses the GitHub API endpoint: `https://api.github.com/users/<username>/events`
 ## Credits
 
 This project is part of [roadmap.sh](https://roadmap.sh) - helping developers practice backend skills.
+
+
+Here is the link to the project: [GitHub User Activity](https://roadmap.sh/projects/github-user-activity)
+
+## Let's Connect!🌟
+
+- [LinkedIn](https://www.linkedin.com/in/murytarlah)
+- [X](https://x.com/murytarlah)
